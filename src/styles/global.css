@@ -3,26 +3,97 @@
   Based on contemporary design principles with improved accessibility
  */
 
-/* Cyberpunk Color Palette */
 :root {
-  --background: #18181b;
-  --primary: #ff00cc;    /* Neon Magenta */
-  --secondary: #00fff7;  /* Neon Cyan */
-  --accent: #faff00;     /* Neon Yellow */
-  --text: #e0e0e0;
-  --heading: #ff00cc;
-  --link: #00fff7;
-  --border: #ff00cc;
+  /* Light mode colors */
+  --accent: #3b82f6;
+  --accent-dark: #1d4ed8;
+  --accent-light: #93c5fd;
+  
+  --primary: #1f2937;
+  --primary-light: #374151;
+  --secondary: #6b7280;
+  --secondary-light: #9ca3af;
+  
+  --background: #ffffff;
+  --background-secondary: #f9fafb;
+  --background-tertiary: #f3f4f6;
+  
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Apply background and text colors */
-body {
-  background: var(--background);
-  color: var(--text);
+[data-theme="dark"] {
+  /* Dark mode colors */
+  --accent: #60a5fa;
+  --accent-dark: #3b82f6;
+  --accent-light: #1e40af;
+  
+  --primary: #f9fafb;
+  --primary-light: #e5e7eb;
+  --secondary: #d1d5db;
+  --secondary-light: #9ca3af;
+  
+  --background: #0f172a;
+  --background-secondary: #1e293b;
+  --background-tertiary: #334155;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  
+  --border: #334155;
+  --border-light: #475569;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  transition: var(--transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -80,14 +151,20 @@ p {
 
 /* Links */
 a {
-  color: var(--link);
-  text-shadow: 0 0 4px var(--link);
-  transition: color 0.2s;
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+  border-radius: 0.25rem;
 }
 
 a:hover {
-  color: var(--accent);
-  text-shadow: 0 0 8px var(--accent);
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Form elements */
@@ -116,10 +193,8 @@ button {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: var(--radius);
-  background: var(--primary);
-  color: var(--background);
-  border: 2px solid var(--border);
-  box-shadow: 0 0 8px var(--primary);
+  background: var(--accent);
+  color: white;
   cursor: pointer;
   transition: var(--transition);
   display: inline-flex;
@@ -128,7 +203,7 @@ button {
 }
 
 button:hover {
-  background: var(--accent);
+  background: var(--accent-dark);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
