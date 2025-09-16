@@ -11,8 +11,6 @@ The cybersecurity landscape has undergone a dramatic transformation over the pas
 
 The SANS Institute has been tracking the maturity of security awareness programs for years, and the progression tells a fascinating story of organizational learning and adaptation:
 
-![Security Awareness Evolution Timeline](/images/blog/evolution-timeline.png)
-
 ### 2022: The Compliance Era
 Most organizations were stuck in the **compliance-driven stage**. Security awareness meant:
 - Generic, one-size-fits-all training modules
@@ -85,7 +83,7 @@ This means:
 
 The 2025 report introduces a refined maturity model that reflects these evolutionary changes:
 
-![SANS Security Awareness Maturity Model](/images/blog/sans-maturity-model.png)
+![SANS Security Awareness Maturity Model](/blog/sans-2025-maturity-model.jpg)
 
 ### Level 1: Non-Existent
 - No formal security awareness program exists
