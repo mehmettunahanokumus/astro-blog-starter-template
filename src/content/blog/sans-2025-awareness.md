@@ -83,7 +83,7 @@ This means:
 
 The 2025 report introduces a refined maturity model that reflects these evolutionary changes:
 
-![SANS Security Awareness Maturity Model](/blog/sans-2025-maturity-model.jpg)
+![SANS Security Awareness Maturity Model](/sans-2025-maturity-model.jpg)
 
 ### Level 1: Non-Existent
 - No formal security awareness program exists
