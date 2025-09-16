@@ -2,7 +2,7 @@
 title: "Beyond Compliance: The 2025 SANS Security Awareness Report"
 description: "The 2025 SANS Security Awareness Report marks a major shift from compliance-driven training to human risk management and resilience. Explore the evolution of security awareness programs and what organizations need to know."
 pubDate: "Sep 16 2025"
-heroImage: "/blog-1757596464951.png"
+heroImage: "/sans-2025-header.jpg"
 ---
 
 The cybersecurity landscape has undergone a dramatic transformation over the past few years, and the newly released 2025 SANS Security Awareness Report provides compelling evidence of this evolution. This year's report doesn't just measure where organizations stand—it fundamentally reframes how we think about security awareness, shifting from compliance-driven approaches to comprehensive human risk management and resilience.
@@ -10,6 +10,8 @@ The cybersecurity landscape has undergone a dramatic transformation over the pas
 ## The Evolution: From Compliance to Resilience
 
 The SANS Institute has been tracking the maturity of security awareness programs for years, and the progression tells a fascinating story of organizational learning and adaptation:
+
+![Security Awareness Evolution Timeline](/images/blog/evolution-timeline.png)
 
 ### 2022: The Compliance Era
 Most organizations were stuck in the **compliance-driven stage**. Security awareness meant:
@@ -82,6 +84,8 @@ This means:
 ## The Updated SANS Maturity Model
 
 The 2025 report introduces a refined maturity model that reflects these evolutionary changes:
+
+![SANS Security Awareness Maturity Model](/images/blog/sans-maturity-model.png)
 
 ### Level 1: Non-Existent
 - No formal security awareness program exists
