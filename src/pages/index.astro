@@ -4,6 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 3);
 ---
 
 <!doctype html>
@@ -65,6 +71,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							</div>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section class="latest-posts-section">
+				<h2 class="section-title">Latest Posts</h2>
+				<div class="latest-posts-grid">
+					{
+						posts.map((post) => (
+							<article class="latest-card">
+								<a href={`/blog/${post.id}/`} class="latest-link">
+									<div class="latest-image">
+										<img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+									</div>
+									<div class="latest-content">
+										<h3>{post.data.title}</h3>
+										<p class="desc">{post.data.description}</p>
+										<div class="meta"><FormattedDate date={post.data.pubDate} /></div>
+									</div>
+								</a>
+							</article>
+						))
+					}
 				</div>
 			</section>
 			
@@ -195,6 +223,44 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		padding-top: 2rem;
 		border-top: 1px solid var(--border);
 	}
+
+	.latest-posts-section {
+		margin-top: 3rem;
+		margin-bottom: 5rem;
+	}
+
+	.latest-posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		max-width: 1100px;
+		margin: 0 auto;
+	}
+
+	.latest-card {
+		background: var(--background-secondary);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		transition: var(--transition);
+	}
+
+	.latest-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-lg);
+		border-color: var(--accent-light);
+	}
+
+	.latest-link { display: block; color: inherit; text-decoration: none; }
+
+	.latest-image { aspect-ratio: 16 / 9; overflow: hidden; }
+	.latest-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+	.latest-content { padding: 1rem; }
+
+	.latest-content h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; color: var(--text-primary); }
+	.latest-content .desc { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
+	.latest-content .meta { margin-top: 0.75rem; color: var(--text-tertiary); font-size: 0.85rem; }
 	
 	.stat-item {
 		text-align: center;
